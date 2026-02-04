@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Reports - MedSeal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h2>My Uploaded Reports</h2>
+
+  {% if records %}
+    {% for r in records %}
+      <div class="card">
+        <p><b>File:</b> {{ r.file }}</p>
+
+          <div class="hash-box">
+             <div class="hash-label">Hash</div>
+                <div class="hash-value">{{r.hash}}</div>
+          </div>
+
+        <p><b>Uploaded At:</b> {{ r.time }}</p>
+
+        <!-- VIEW BUTTON -->
+        <a href="/file/{{ r.file }}" target="_blank" class="btn small">
+          👁 View File
+        </a>
+
+        <!-- DOWNLOAD BUTTON -->
+        <a href="/file/{{ r.file }}" download class="btn small gray">
+          ⬇ Download
+        </a>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No reports uploaded yet.</p>
+  {% endif %}
+
+  <a href="/dashboard" class="btn">⬅ Back</a>
+</div>
+
+</body>
+</html>

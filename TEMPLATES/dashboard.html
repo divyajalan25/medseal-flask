@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - MedSeal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <h2>Welcome</h2>
+  <p Class="written">Email: {{ email }}</p>
+  <p Class="written">Phone: {{ phone }}</p>
+
+  <a href="/upload" class="btn">📤 Upload Report</a>
+  <a href="/view" class="btn">📄 View My Reports</a>
+  <a href="/logout" class="btn logout">🔓 Logout</a>
+</div>
+</body>
+</html>
